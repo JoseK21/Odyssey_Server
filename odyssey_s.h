@@ -36,7 +36,7 @@ private slots:
      * @brief Método para establecer la conexió con el cliente
      *
      */
-    //void on_client_clicked(const QString dato);
+    void on_client_clicked(const QString dato);
 
 private:
     Ui::Odyssey_S *ui;

@@ -3,6 +3,7 @@
 
 #include <QJsonObject>
 #include <QJsonDocument>
+#include <string.h>
 
 Odyssey_S::Odyssey_S(QWidget *parent) :
     QMainWindow(parent),
@@ -14,8 +15,15 @@ Odyssey_S::Odyssey_S(QWidget *parent) :
 
     tcpcliente = new QTcpSocket(this);
 
-    tcpservidor->listen(QHostAddress::LocalHost,8888);
+    QHostAddress hostadd("172.17.70.138");
+
+
+    qDebug()<< hostadd;
+    tcpservidor->listen(hostadd,8888);
+
+    //tcpservidor->listen(QHostAddress::LocalHost,8888);
     connect(tcpservidor,SIGNAL(newConnection()),this, SLOT(conexion_nueva()));
+
 }
 
 /**
@@ -50,6 +58,9 @@ void Odyssey_S::leer_socketcliente() {       //Recibe los datos del cliente
 
         qDebug() << "Buffer : "<<QString (buffer);
 
+
+        /*
+
         QString dataInto = QString(buffer);
         QJsonDocument doc = QJsonDocument::fromJson(dataInto.toUtf8());
         QJsonObject jsonObject = doc.object();
@@ -57,9 +68,12 @@ void Odyssey_S::leer_socketcliente() {       //Recibe los datos del cliente
        // jsonObject.insert("adress_memory", QString::number(value));
         QJsonDocument docX(jsonObject);
         const QString strJson(docX.toJson(QJsonDocument::Compact));
+*/
+        const std::string nada = "NADA";
 
+        //tcpcliente->write(nada.toLatin1().data() , nada.toLatin1().size());
 
-        tcpcliente->write( strJson.toLatin1().data() , strJson.toLatin1().size()); //envio datos al cliente
+        tcpcliente->write(nada.data() , nada.size()); //envio datos al cliente
 
         //on_client_clicked(strJson);
     }
@@ -70,11 +84,13 @@ void Odyssey_S::leer_socketcliente() {       //Recibe los datos del cliente
 
 
 /**
- * @brief Método para establecer una conexión con el cliente 1
+ * @brief Método para establecer una conexión con el cliente
  *
  */
-/*
+
+
 void Odyssey_S::on_client_clicked(const QString dato)
 {
+
     tcpcliente->write( dato.toLatin1().data() , dato.toLatin1().size()); //envio datos al cliente
-}*/
+}

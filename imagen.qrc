@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>xml.png</file>
+        <file>json.png</file>
+    </qresource>
+</RCC>

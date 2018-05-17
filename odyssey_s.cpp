@@ -5,23 +5,31 @@
 #include <QJsonDocument>
 #include <string.h>
 
+#include "thread.h"
+
+
+QString xml = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>";
+
 Odyssey_S::Odyssey_S(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Odyssey_S)
 {
     ui->setupUi(this);
     tcpservidor = new QTcpServer(this);
-    tcpservidor->setMaxPendingConnections(1);
-
-    tcpcliente = new QTcpSocket(this);
-
-    QHostAddress hostadd("172.17.70.138");
+    tcpservidor->setMaxPendingConnections(2);
 
 
-    qDebug()<< hostadd;
+    for(int i = 0; i< tcpservidor->maxPendingConnections();i++){
+        tcpcliente[i] = new QTcpSocket(this);
+    }
+
+    QHostAddress hostadd("172.18.64.35");
+
+
+
+
+    qDebug()<< xml;
     tcpservidor->listen(hostadd,8888);
-
-    //tcpservidor->listen(QHostAddress::LocalHost,8888);
     connect(tcpservidor,SIGNAL(newConnection()),this, SLOT(conexion_nueva()));
 
 }
@@ -40,8 +48,10 @@ Odyssey_S::~Odyssey_S()
  *
  */
 void Odyssey_S::conexion_nueva(){
-    tcpcliente = tcpservidor->nextPendingConnection();
-    connect(tcpcliente,SIGNAL(readyRead()),this, SLOT(leer_socketcliente()));
+    static int j=0;
+    tcpcliente[j] = tcpservidor->nextPendingConnection();
+    connect(tcpcliente[j],SIGNAL(readyRead()),this, SLOT(leer_socketcliente()));
+    j++;
     ui->label_3->setText("Connected Client Odyssey");
 }
 /**
@@ -49,33 +59,29 @@ void Odyssey_S::conexion_nueva(){
  *
  */
 void Odyssey_S::leer_socketcliente() {       //Recibe los datos del cliente
-    if(tcpcliente->bytesAvailable() > 0){
+    if(tcpcliente[0]->bytesAvailable() > 0){
+        //data->filtro("int");
         QByteArray buffer;
-        buffer.resize( tcpcliente->bytesAvailable());
-        tcpcliente->read( buffer.data(),buffer.size() );
-        ui->plainTextEdit->setReadOnly(true);
-        ui->plainTextEdit->appendPlainText( QString (buffer));
-
+        buffer.resize( tcpcliente[0]->bytesAvailable());
+        tcpcliente[0]->read( buffer.data(),buffer.size() );
+        ui->plainTextEdit->setReadOnly(true);        ui->plainTextEdit->appendPlainText( QString (buffer));
         qDebug() << "Buffer : "<<QString (buffer);
 
 
-        /*
+        xml += "<people>"
+                    "<person>"
+                          "<name>"+QString (buffer)+"</name><age>20</age></person>\n";
 
         QString dataInto = QString(buffer);
         QJsonDocument doc = QJsonDocument::fromJson(dataInto.toUtf8());
         QJsonObject jsonObject = doc.object();
 
-       // jsonObject.insert("adress_memory", QString::number(value));
+        jsonObject.insert("adress_memory", 12345);
+
         QJsonDocument docX(jsonObject);
-        const QString strJson(docX.toJson(QJsonDocument::Compact));
-*/
-        const std::string nada = "NADA";
+        const QString strJson(docX.toJson(QJsonDocument::Compact).append("\n"));
 
-        //tcpcliente->write(nada.toLatin1().data() , nada.toLatin1().size());
-
-        tcpcliente->write(nada.data() , nada.size()); //envio datos al cliente
-
-        //on_client_clicked(strJson);
+        on_client_clicked(xml);
     }
     else{
         ui->plainTextEdit->appendPlainText("No se puedo realizar la comunicacion de ningun sockets cliente");
@@ -89,8 +95,7 @@ void Odyssey_S::leer_socketcliente() {       //Recibe los datos del cliente
  */
 
 
-void Odyssey_S::on_client_clicked(const QString dato)
+void Odyssey_S::on_client_clicked(const QString inf)
 {
-
-    tcpcliente->write( dato.toLatin1().data() , dato.toLatin1().size()); //envio datos al cliente
+    tcpcliente[0]->write( inf.toLatin1().data() , inf.toLatin1().size()); //envio datos al cliente
 }

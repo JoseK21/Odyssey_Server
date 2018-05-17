@@ -13,11 +13,15 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-         odyssey_s.cpp
+         odyssey_s.cpp \
+    thread.cpp
 
-HEADERS  += odyssey_s.h
+HEADERS  += odyssey_s.h \
+    thread.h
 
 FORMS    += odyssey_s.ui
 
 RESOURCES += \
     imagen.qrc
+
+QMAKE_CXXFLAGS += -std=gnu++14

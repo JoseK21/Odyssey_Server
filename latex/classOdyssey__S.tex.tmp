@@ -1,0 +1,57 @@
+\hypertarget{classOdyssey__S}{}\section{Odyssey\+\_\+S Class Reference}
+\label{classOdyssey__S}\index{Odyssey\+\_\+S@{Odyssey\+\_\+S}}
+
+
+Inheritance diagram for Odyssey\+\_\+S\+:
+% FIG 0
+
+
+Collaboration diagram for Odyssey\+\_\+S\+:
+% FIG 1
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classOdyssey__S_aeff37b01c182a1c89dfd219c659b23b0}{conexion\+\_\+nueva} ()
+\begin{DoxyCompactList}\small\item\em Método para establecer la comunicación con el cliente. \end{DoxyCompactList}\item 
+void \hyperlink{classOdyssey__S_a52f7c112ccabed8a33ebe6e71332ead3}{leer\+\_\+socketcliente} ()
+\begin{DoxyCompactList}\small\item\em Método para leer los datos enviado por el cliente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Odyssey\+\_\+S} (Q\+Widget $\ast$parent=0)\hypertarget{classOdyssey__S_a5d900f010cd65c9e5da22acb993746b8}{}\label{classOdyssey__S_a5d900f010cd65c9e5da22acb993746b8}
+
+\item 
+\hyperlink{classOdyssey__S_add23daab02c7f859e43a5121397e4746}{$\sim$\+Odyssey\+\_\+S} ()\hypertarget{classOdyssey__S_add23daab02c7f859e43a5121397e4746}{}\label{classOdyssey__S_add23daab02c7f859e43a5121397e4746}
+
+\begin{DoxyCompactList}\small\item\em Método para borrar la llamada de la creación de la ventana. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{Odyssey\+\_\+S@{Odyssey\+\_\+S}!conexion\+\_\+nueva@{conexion\+\_\+nueva}}
+\index{conexion\+\_\+nueva@{conexion\+\_\+nueva}!Odyssey\+\_\+S@{Odyssey\+\_\+S}}
+\subsubsection[{\texorpdfstring{conexion\+\_\+nueva}{conexion_nueva}}]{\setlength{\rightskip}{0pt plus 5cm}void Odyssey\+\_\+\+S\+::conexion\+\_\+nueva (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\hypertarget{classOdyssey__S_aeff37b01c182a1c89dfd219c659b23b0}{}\label{classOdyssey__S_aeff37b01c182a1c89dfd219c659b23b0}
+
+
+Método para establecer la comunicación con el cliente. 
+
+Método para crear una nueva conexión. \index{Odyssey\+\_\+S@{Odyssey\+\_\+S}!leer\+\_\+socketcliente@{leer\+\_\+socketcliente}}
+\index{leer\+\_\+socketcliente@{leer\+\_\+socketcliente}!Odyssey\+\_\+S@{Odyssey\+\_\+S}}
+\subsubsection[{\texorpdfstring{leer\+\_\+socketcliente}{leer_socketcliente}}]{\setlength{\rightskip}{0pt plus 5cm}void Odyssey\+\_\+\+S\+::leer\+\_\+socketcliente (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\hypertarget{classOdyssey__S_a52f7c112ccabed8a33ebe6e71332ead3}{}\label{classOdyssey__S_a52f7c112ccabed8a33ebe6e71332ead3}
+
+
+Método para leer los datos enviado por el cliente. 
+
+Método para leer los msj del cliente. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+odyssey\+\_\+s.\+h\item 
+odyssey\+\_\+s.\+cpp\end{DoxyCompactItemize}

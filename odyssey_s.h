@@ -41,7 +41,7 @@ private slots:
 private:
     Ui::Odyssey_S *ui;
     QTcpServer *tcpservidor; /**< TCP_Servidor */
-    QTcpSocket *tcpcliente; /**< TCP_Cliente */
+    QTcpSocket *tcpcliente[2]; /**< TCP_Cliente */
 };
 
 #endif // ODYSSEY_S_H

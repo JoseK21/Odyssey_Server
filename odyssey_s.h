@@ -39,6 +39,12 @@ public slots:
      *
      */
     void leer_socketLogin();
+    /**
+     * @brief Método para leer los datos enviado por el cliente
+     *
+     */
+    void leer_socketSingin();
+
 
 
 private:

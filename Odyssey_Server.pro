@@ -14,12 +14,10 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
          odyssey_s.cpp \
-    thread.cpp \
     treebb.cpp \
     nodebb.cpp
 
 HEADERS  += odyssey_s.h \
-    thread.h \
     treebb.h \
     nodebb.h
 

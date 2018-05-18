@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network
+QT       += core gui network xml
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -14,10 +14,14 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
          odyssey_s.cpp \
-    thread.cpp
+    thread.cpp \
+    treebb.cpp \
+    nodebb.cpp
 
 HEADERS  += odyssey_s.h \
-    thread.h
+    thread.h \
+    treebb.h \
+    nodebb.h
 
 FORMS    += odyssey_s.ui
 

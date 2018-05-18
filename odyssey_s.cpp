@@ -1,6 +1,11 @@
 #include "odyssey_s.h"
 #include "ui_odyssey_s.h"
 
+#include <QNetworkInterface>
+#include <QtCore>
+#include <QtXml>
+#include <QDebug>
+
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <string.h>
@@ -8,7 +13,7 @@
 #include "thread.h"
 
 
-QString xml = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>";
+QString xml;
 
 Odyssey_S::Odyssey_S(QWidget *parent) :
     QMainWindow(parent),
@@ -16,7 +21,9 @@ Odyssey_S::Odyssey_S(QWidget *parent) :
 {
     ui->setupUi(this);
     tcpservidor = new QTcpServer(this);
-    tcpservidor->setMaxPendingConnections(2);
+    tcpservidor->setMaxPendingConnections(5);
+
+
 
 
     for(int i = 0; i< tcpservidor->maxPendingConnections();i++){
@@ -24,13 +31,8 @@ Odyssey_S::Odyssey_S(QWidget *parent) :
     }
 
     QHostAddress hostadd("172.18.64.35");
-
-
-
-
-    qDebug()<< xml;
-    tcpservidor->listen(hostadd,8888);
-    connect(tcpservidor,SIGNAL(newConnection()),this, SLOT(conexion_nueva()));
+            tcpservidor->listen(hostadd,8888);
+            connect(tcpservidor,SIGNAL(newConnection()),this, SLOT(conexion_nueva()));
 
 }
 
@@ -58,44 +60,80 @@ void Odyssey_S::conexion_nueva(){
  * @brief Método para leer los msj del cliente
  *
  */
-void Odyssey_S::leer_socketcliente() {       //Recibe los datos del cliente
+void Odyssey_S::leer_socketLogin() {       //Recibe los datos del cliente
     if(tcpcliente[0]->bytesAvailable() > 0){
-        //data->filtro("int");
         QByteArray buffer;
         buffer.resize( tcpcliente[0]->bytesAvailable());
         tcpcliente[0]->read( buffer.data(),buffer.size() );
-        ui->plainTextEdit->setReadOnly(true);        ui->plainTextEdit->appendPlainText( QString (buffer));
-        qDebug() << "Buffer : "<<QString (buffer);
-
-
-        xml += "<people>"
-                    "<person>"
-                          "<name>"+QString (buffer)+"</name><age>20</age></person>\n";
-
+        ui->plainTextEdit->setReadOnly(true);
+        ui->plainTextEdit->appendPlainText( QString(buffer));
+        qDebug() << ">>>>>> : "<<QString (buffer+"\n");
+        xml = QString (buffer);
+/*
         QString dataInto = QString(buffer);
         QJsonDocument doc = QJsonDocument::fromJson(dataInto.toUtf8());
         QJsonObject jsonObject = doc.object();
-
         jsonObject.insert("adress_memory", 12345);
-
         QJsonDocument docX(jsonObject);
+
         const QString strJson(docX.toJson(QJsonDocument::Compact).append("\n"));
 
-        on_client_clicked(xml);
+*/
+
+        tcpcliente[0]->write( xml.toLatin1().data() , xml.toLatin1().size()); //envio datos al cliente
     }
     else{
         ui->plainTextEdit->appendPlainText("No se puedo realizar la comunicacion de ningun sockets cliente");
     }
 }
 
+void Odyssey_S::leer_socketcliente() {       //Recibe los datos del cliente
+    if(tcpcliente[0]->bytesAvailable() > 0){
+        QByteArray buffer;
+        buffer.resize( tcpcliente[0]->bytesAvailable());
+        tcpcliente[0]->read( buffer.data(),buffer.size() );
+        ui->plainTextEdit->setReadOnly(true);
+        ui->plainTextEdit->appendPlainText( QString(buffer));
+        qDebug() << ">>>>>> : "<<QString (buffer+"\n");
+        xml = QString (buffer);
+/*
+        QString dataInto = QString(buffer);
+        QJsonDocument doc = QJsonDocument::fromJson(dataInto.toUtf8());
+        QJsonObject jsonObject = doc.object();
+        jsonObject.insert("adress_memory", 12345);
+        QJsonDocument docX(jsonObject);
 
-/**
- * @brief Método para establecer una conexión con el cliente
- *
- */
+        const QString strJson(docX.toJson(QJsonDocument::Compact).append("\n"));
 
+*/
 
-void Odyssey_S::on_client_clicked(const QString inf)
-{
-    tcpcliente[0]->write( inf.toLatin1().data() , inf.toLatin1().size()); //envio datos al cliente
+        tcpcliente[0]->write( xml.toLatin1().data() , xml.toLatin1().size()); //envio datos al cliente
+    }
+    else{
+        ui->plainTextEdit->appendPlainText("No se puedo realizar la comunicacion de ningun sockets cliente");
+    }
 }
+
+void Odyssey_S::doXml(){
+
+    QDomDocument document;
+    QDomElement root = document.createElement("Element");
+
+    document.appendChild(root);
+
+    QFile file("C:\\Test\\MyXML.xml");
+    if(!file.open(QIODevice::WriteOnly | QIODevice::Text)){
+        qDebug() <<"Error_Failded to open file for writting";
+        //return -1;
+    }else{
+        QTextStream stream(&file);
+        stream << document.toString();
+        file.close();
+        qDebug() << "Finished";
+    }
+
+
+
+
+}
+

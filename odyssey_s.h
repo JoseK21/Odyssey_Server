@@ -29,14 +29,17 @@ public slots:
      *
      */
     void leer_socketcliente();
-
-
-private slots:
     /**
-     * @brief Método para establecer la conexió con el cliente
+     * @brief Método para crear el fichero xml
      *
      */
-    void on_client_clicked(const QString dato);
+    void doXml();
+    /**
+     * @brief Método para leer los datos enviado por el cliente
+     *
+     */
+    void leer_socketLogin();
+
 
 private:
     Ui::Odyssey_S *ui;

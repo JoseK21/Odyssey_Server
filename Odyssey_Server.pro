@@ -15,11 +15,15 @@ TEMPLATE = app
 SOURCES += main.cpp\
          odyssey_s.cpp \
     treebb.cpp \
-    nodebb.cpp
+    nodobb.cpp \
+    arbolbb.cpp \
+    quicksort.cpp \
+    radixsort.cpp \
+    bubblesort.cpp \
+    binarysearchtree.cpp
 
 HEADERS  += odyssey_s.h \
-    treebb.h \
-    nodebb.h
+    treebb.h
 
 FORMS    += odyssey_s.ui
 

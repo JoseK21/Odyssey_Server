@@ -131,6 +131,25 @@ void Odyssey_S::leer_socketLogin() {       //Recibe los datos del cliente
             ui->plainTextEdit->setReadOnly(true);
             ui->plainTextEdit->appendPlainText("Login :"+ QString(buffer));
         xml = QString (buffer)+"\n";
+        
+        QString input(buffer);
+        QByteArray bytes = input.toUtf8();
+            QDomDocument doc;
+            doc.setContent(bytes);
+            QDomNodeList start = doc.elementsByTagName("password");
+            int length = start.length();
+            int lengthInner;
+            for (int i = 0; i < length; i++){
+                auto node = start.at(i);
+                auto map = node.attributes();
+                lengthInner = map.length();
+                for (int j = 0; j < lengthInner; j++){
+                    auto mapItem = map.item(j);
+                    auto attribute = mapItem.toAttr();
+                    qDebug() << "Value: " << attribute.value();
+                }
+        }
+        
         tcpcliente[0]->write( xml.toLatin1().data() , xml.toLatin1().size());
         }
     }
@@ -156,36 +175,43 @@ void Odyssey_S::leer_socketSingin() {       //Recibe los datos del cliente
         xml = QString (buffer)+"\n";
         xml2= QString(buffer);
         QString nada = QString("SI")+"\n";
-
-        QString a1 = "a3";
-        QString a2 = "b3";
-        QString a3 = "c3";
-
-       /* QString input("<username key=\""+a1+"\"><fullname key=\""+a2+"\"><password key=\""+a3+"\">");
-                      */
-QString input(buffer);
-
+        
+        QString input(buffer);
         QByteArray bytes = input.toUtf8();
-
             QDomDocument doc;
             doc.setContent(bytes);
-
+            QDomNodeList start = doc.elementsByTagName("username");
+            int length = start.length();
+            int lengthInner;
+            for (int i = 0; i < length; i++){
+                auto node = start.at(i);
+                auto map = node.attributes();
+                lengthInner = map.length();
+                for (int j = 0; j < lengthInner; j++){
+                    auto mapItem = map.item(j);
+                    auto attribute = mapItem.toAttr();
+                    qDebug() << "Username: " << attribute.value();
+                }
+        }    
+            
+        QString input(buffer);
+        QByteArray bytes = input.toUtf8();
+            QDomDocument doc;
+            doc.setContent(bytes);
             QDomNodeList start = doc.elementsByTagName("password");
             int length = start.length();
             int lengthInner;
-            for (int i = 0; i < length; i++)
-            {
+            for (int i = 0; i < length; i++){
                 auto node = start.at(i);
                 auto map = node.attributes();
-
                 lengthInner = map.length();
-                for (int j = 0; j < lengthInner; j++)
-                {
+                for (int j = 0; j < lengthInner; j++){
                     auto mapItem = map.item(j);
                     auto attribute = mapItem.toAttr();
-                    qDebug() << "Value: " << attribute.value();
+                    qDebug() << "Password: " << attribute.value();
                 }
-
+                
+                
         //tcpcliente[1]->write( xml.toLatin1().data() , xml.toLatin1().size()); //envio datos al cliente
         tcpcliente[1]->write( nada.toLatin1().data() , nada.toLatin1().size()); //envio datos al cliente
             }}
@@ -212,7 +238,23 @@ void Odyssey_S::leer_socketcliente() {       //Recibe los datos del cliente
         xml = QString (buffer)+"\n";
 
 
-
+        QString input(buffer);
+        QByteArray bytes = input.toUtf8();
+            QDomDocument doc;
+            doc.setContent(bytes);
+            QDomNodeList start = doc.elementsByTagName("password");
+            int length = start.length();
+            int lengthInner;
+            for (int i = 0; i < length; i++){
+                auto node = start.at(i);
+                auto map = node.attributes();
+                lengthInner = map.length();
+                for (int j = 0; j < lengthInner; j++){
+                    auto mapItem = map.item(j);
+                    auto attribute = mapItem.toAttr();
+                    qDebug() << "Value: " << attribute.value();
+                }
+        }
 
 
         /*

@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     radixsort.cpp \
     bubblesort.cpp \
     binarysearchtree.cpp \
-    btree.cpp
+    btree.cpp \
+    avltree.cpp
 
 HEADERS  += odyssey_s.h \
     treebb.h

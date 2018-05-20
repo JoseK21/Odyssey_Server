@@ -95,15 +95,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Inheritance diagram for Odyssey_S:</div>
 <div class="dyncontent">
 <div class="center"><img src="classOdyssey__S__inherit__graph.png" border="0" usemap="#Odyssey__S_inherit__map" alt="Inheritance graph"/></div>
-<map name="Odyssey__S_inherit__map" id="Odyssey__S_inherit__map">
-</map>
+<!-- MAP 0 -->
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for Odyssey_S:</div>
 <div class="dyncontent">
 <div class="center"><img src="classOdyssey__S__coll__graph.png" border="0" usemap="#Odyssey__S_coll__map" alt="Collaboration graph"/></div>
-<map name="Odyssey__S_coll__map" id="Odyssey__S_coll__map">
-</map>
+<!-- MAP 1 -->
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
@@ -114,6 +112,16 @@ Public Slots</h2></td></tr>
 <tr class="memitem:a52f7c112ccabed8a33ebe6e71332ead3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOdyssey__S.html#a52f7c112ccabed8a33ebe6e71332ead3">leer_socketcliente</a> ()</td></tr>
 <tr class="memdesc:a52f7c112ccabed8a33ebe6e71332ead3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método para leer los datos enviado por el cliente.  <a href="#a52f7c112ccabed8a33ebe6e71332ead3">More...</a><br /></td></tr>
 <tr class="separator:a52f7c112ccabed8a33ebe6e71332ead3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94afe647c9124c63dec80c34c1971511"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOdyssey__S.html#a94afe647c9124c63dec80c34c1971511">leer_socketLogin</a> ()</td></tr>
+<tr class="memdesc:a94afe647c9124c63dec80c34c1971511"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método para leer los datos enviado por el cliente.  <a href="#a94afe647c9124c63dec80c34c1971511">More...</a><br /></td></tr>
+<tr class="separator:a94afe647c9124c63dec80c34c1971511"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0625b047b5b43f8760eeaa7c6fadeb44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOdyssey__S.html#a0625b047b5b43f8760eeaa7c6fadeb44">leer_socketSingin</a> ()</td></tr>
+<tr class="memdesc:a0625b047b5b43f8760eeaa7c6fadeb44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método para leer los datos enviado por el cliente.  <a href="#a0625b047b5b43f8760eeaa7c6fadeb44">More...</a><br /></td></tr>
+<tr class="separator:a0625b047b5b43f8760eeaa7c6fadeb44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab868c029c2d6cd24076e89694456162"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab868c029c2d6cd24076e89694456162"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOdyssey__S.html#aab868c029c2d6cd24076e89694456162">createFile</a> ()</td></tr>
+<tr class="memdesc:aab868c029c2d6cd24076e89694456162"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método para crear el ficheros. <br /></td></tr>
+<tr class="separator:aab868c029c2d6cd24076e89694456162"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -174,7 +182,59 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Método para leer los datos enviado por el cliente. </p>
-<p>Método para leer los msj del cliente. </p>
+<p>Método hacer la comunicación del socket Cliente/Interface_Server. </p>
+
+</div>
+</div>
+<a class="anchor" id="a94afe647c9124c63dec80c34c1971511"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Odyssey_S::leer_socketLogin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Método para leer los datos enviado por el cliente. </p>
+<p>Método hacer la comunicación del socket Login_Server. </p>
+
+</div>
+</div>
+<a class="anchor" id="a0625b047b5b43f8760eeaa7c6fadeb44"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Odyssey_S::leer_socketSingin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Método para leer los datos enviado por el cliente. </p>
+<p>Método hacer la comunicación del socket Singin_Server. </p>
 
 </div>
 </div>

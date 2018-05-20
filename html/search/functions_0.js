@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['conexion_5fnueva',['conexion_nueva',['../classOdyssey__S.html#aeff37b01c182a1c89dfd219c659b23b0',1,'Odyssey_S']]]
+  ['borrowfromnext',['borrowFromNext',['../classBTreeNode.html#ac952651fc8810a15c9056ea3ffa62506',1,'BTreeNode']]],
+  ['borrowfromprev',['borrowFromPrev',['../classBTreeNode.html#aa9960b327fc4cfd9163cd95c221c5289',1,'BTreeNode']]]
 ];

@@ -5,6 +5,7 @@
 #include <QtCore>
 #include <QtXml>
 #include <QDebug>
+#include <QCoreApplication>
 
 #include <QJsonObject>
 #include <QJsonDocument>
@@ -124,47 +125,88 @@ void Odyssey_S::leer_socketLogin() {       //Recibe los datos del cliente
             ui->plainTextEdit->appendPlainText("Login :"+ QString(buffer));
         xml = QString (buffer)+"\n";
 
-        QString inputL(buffer);
-        QByteArray bytesL = inputL.toUtf8();
-            QDomDocument docL;
-            docL.setContent(bytesL);
-            QDomNodeList startL = docL.elementsByTagName("username");
-            int lengthL = startL.length();
-            int lengthInnerL;
-            for (int i = 0; i < lengthL; i++){
-                auto nodeL = startL.at(i);
-                auto mapL = nodeL.attributes();
-                lengthInnerL = mapL.length();
-                for (int j = 0; j < lengthInnerL; j++){
-                    auto mapItemL = mapL.item(j);
-                    auto attributeL = mapItemL.toAttr();
-                    qDebug() << "Username: " << attributeL.value();
-                }
+        QString uSerLogin,fuSerLogin= "";
+
+        QString input(buffer);
+        QByteArray bytes = input.toUtf8();
+        QDomDocument doc;
+        doc.setContent(bytes);
+        QDomNodeList start;
+        int length=0;
+        int lengthInner;
+        start = doc.elementsByTagName("username");
+        length = start.length();
+
+        for (int i = 0; i < length; i++){
+            auto node = start.at(i);
+            auto map = node.attributes();
+            lengthInner = map.length();
+            for (int j = 0; j < lengthInner; j++){
+                auto mapItem = map.item(j);
+                auto attribute = mapItem.toAttr();
+                qDebug() << "Username: " << attribute.value();
+                uSerLogin=attribute.value();
+            }
+        }
+        start = doc.elementsByTagName("fullname");
+        length = start.length();
+        for (int i = 0; i < length; i++){
+            auto node = start.at(i);
+            auto map = node.attributes();
+            lengthInner = map.length();
+            for (int j = 0; j < lengthInner; j++){
+                auto mapItem = map.item(j);
+                auto attribute = mapItem.toAttr();
+                qDebug() << "Fullname: " << attribute.value();
+                fuSerLogin=attribute.value();
+            }
         }
 
-            QString inputL2(buffer);
-            QByteArray bytesC2 = inputL2.toUtf8();
-                QDomDocument docL2;
-                docL2.setContent(bytesC2);
-                QDomNodeList startL2 = docL2.elementsByTagName("password");
-                int lengthL2 = startL2.length();
-                int lengthInnerL2;
-                for (int i = 0; i < lengthL2; i++){
-                    auto nodeL2 = startL2.at(i);
-                    auto mapL2 = nodeL2.attributes();
-                    lengthInnerL2 = mapL2.length();
-                    for (int j = 0; j < lengthInnerL2; j++){
-                        auto mapItemL2 = mapL2.item(j);
-                        auto attributeL2 = mapItemL2.toAttr();
-                        qDebug() << "Password: " << attributeL2.value();
-                    }
-            }
+
+        //Intento de cargar desde el archivo .json
+/*
+
+        QFile file("/home/josek/FolderOdyssey/Users.json");
+           if (!file.open(QIODevice::ReadOnly)) {
+               qDebug() << "file error";
+               return;
+           }
+           const QByteArray ba = file.readAll();
+           file.close();
+
+           QJsonParseError err;
+           QJsonDocument docm = QJsonDocument::fromJson(ba, &err);
+
+           QJsonObject json = docm.object();
+
+
+ QJsonValue values = json.value(QString("Age"));
+QJsonObject items = values.toObject();
+
+           qDebug() << values.toArray();
+
+           qWarning() << tr("client") << item["description"];
+                 QJsonValue subobj = item["description"];
+                 qWarning() << subobj.toString();
+
+
+               foreach(const QString& key, json.keys()) {
+                   QJsonValue value = json.value(QString("UserName"));
+                   qDebug() << "Key = " << key << ", Value = " ;
+               }
+
+
+               */
 
         tcpcliente[0]->write( xml.toLatin1().data() , xml.toLatin1().size());
         }
     }
     else{
-        ui->plainTextEdit->appendPlainText("No se puedo realizar la comunicacion <socket Login>");    }
+        ui->plainTextEdit->appendPlainText("No se puedo realizar la comunicacion <socket Login>");
+    }
+
+    //QString toclient  = "<client><username>"+uSerLogin+"</username><password>"+fuSerLogin+"</password><acces>"+acces+"</acces></client>";
+
 
 
 }
@@ -364,28 +406,6 @@ void Odyssey_S::leer_socketcliente() {       //Recibe los datos del cliente
                     qDebug() << "Value: " << attribute.value();
                 }
         }
-
-
-        /*
-        QByteArray xmlText;
-        //Get your xml into xmlText(you can use QString instead og QByteArray)
-        QDomDocument doc;
-        doc.setContent(QString(buffer));
-        QDomNodeList list=doc.elementsByName("string");
-        QString helloWorld=list.at(0).toElement().text();
-        qDebug()<< "MY NAME IS :" + helloWorld;
-        */
-
-/*
-        QString dataInto = QString(buffer);
-        QJsonDocument doc = QJsonDocument::fromJson(dataInto.toUtf8());
-        QJsonObject jsonObject = doc.object();
-        jsonObject.insert("adress_memory", 12345);
-        QJsonDocument docX(jsonObject);
-
-        const QString strJson(docX.toJson(QJsonDocument::Compact).append("\n"));
-
-*/
 
         tcpcliente[2]->write( xml.toLatin1().data() , xml.toLatin1().size()); //envio datos al cliente
     }

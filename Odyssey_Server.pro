@@ -14,7 +14,6 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
          odyssey_s.cpp \
-    treebb.cpp \
     quicksort.cpp \
     radixsort.cpp \
     bubblesort.cpp \
@@ -22,8 +21,7 @@ SOURCES += main.cpp\
     btree.cpp \
     avltree.cpp
 
-HEADERS  += odyssey_s.h \
-    treebb.h
+HEADERS  += odyssey_s.h
 
 FORMS    += odyssey_s.ui
 

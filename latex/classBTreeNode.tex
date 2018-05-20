@@ -1,0 +1,233 @@
+\hypertarget{classBTreeNode}{}\section{B\+Tree\+Node Class Reference}
+\label{classBTreeNode}\index{B\+Tree\+Node@{B\+Tree\+Node}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries B\+Tree\+Node} (int \+\_\+t, bool \+\_\+leaf)\hypertarget{classBTreeNode_a77bdc171cacfca17e7e6a0748303b188}{}\label{classBTreeNode_a77bdc171cacfca17e7e6a0748303b188}
+
+\item 
+void \hyperlink{classBTreeNode_abbbbc81dc44a25f7c1d31461a25284da}{traverse} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classBTreeNode_abbbbc81dc44a25f7c1d31461a25284da}{B\+Tree\+Node\+::traverse}. \end{DoxyCompactList}\item 
+\hyperlink{classBTreeNode}{B\+Tree\+Node} $\ast$ \hyperlink{classBTreeNode_a6efde11b5f5d60718992ab1803262c88}{search} (int k)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classBTreeNode_a6efde11b5f5d60718992ab1803262c88}{B\+Tree\+Node\+::search}. \end{DoxyCompactList}\item 
+int {\bfseries find\+Key} (int k)\hypertarget{classBTreeNode_abe135dadefdbc33ef0a8f5722b1e2cc5}{}\label{classBTreeNode_abe135dadefdbc33ef0a8f5722b1e2cc5}
+
+\item 
+void \hyperlink{classBTreeNode_aab8552d41662b83059a6f1e149b55ad9}{insert\+Non\+Full} (int k)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classBTreeNode_aab8552d41662b83059a6f1e149b55ad9}{B\+Tree\+Node\+::insert\+Non\+Full}. \end{DoxyCompactList}\item 
+void \hyperlink{classBTreeNode_ad4d6359429aa7bb6edc30aaf1a4d2bb9}{split\+Child} (int i, \hyperlink{classBTreeNode}{B\+Tree\+Node} $\ast$y)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classBTreeNode_ad4d6359429aa7bb6edc30aaf1a4d2bb9}{B\+Tree\+Node\+::split\+Child}. \end{DoxyCompactList}\item 
+void {\bfseries remove} (int k)\hypertarget{classBTreeNode_afed908ff3266afec02a660a84472e9c3}{}\label{classBTreeNode_afed908ff3266afec02a660a84472e9c3}
+
+\item 
+void \hyperlink{classBTreeNode_a16d8905e906ebb4fce44dbb59cdae1a1}{remove\+From\+Leaf} (int idx)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classBTreeNode_a16d8905e906ebb4fce44dbb59cdae1a1}{B\+Tree\+Node\+::remove\+From\+Leaf}. \end{DoxyCompactList}\item 
+void \hyperlink{classBTreeNode_aa6ee53b119d6ee874d664652c2eeba6e}{remove\+From\+Non\+Leaf} (int idx)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classBTreeNode_aa6ee53b119d6ee874d664652c2eeba6e}{B\+Tree\+Node\+::remove\+From\+Non\+Leaf}. \end{DoxyCompactList}\item 
+int \hyperlink{classBTreeNode_a4a212d79e42c57cf3e8e4520f4cc7f04}{get\+Pred} (int idx)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classBTreeNode_a4a212d79e42c57cf3e8e4520f4cc7f04}{B\+Tree\+Node\+::get\+Pred}. \end{DoxyCompactList}\item 
+int {\bfseries get\+Succ} (int idx)\hypertarget{classBTreeNode_a36e351cd08903051431eeba04498345e}{}\label{classBTreeNode_a36e351cd08903051431eeba04498345e}
+
+\item 
+void \hyperlink{classBTreeNode_acbcd10173cfb359b0368a14d3c5057f4}{fill} (int idx)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classBTreeNode_acbcd10173cfb359b0368a14d3c5057f4}{B\+Tree\+Node\+::fill}. \end{DoxyCompactList}\item 
+void \hyperlink{classBTreeNode_aa9960b327fc4cfd9163cd95c221c5289}{borrow\+From\+Prev} (int idx)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classBTreeNode_aa9960b327fc4cfd9163cd95c221c5289}{B\+Tree\+Node\+::borrow\+From\+Prev}. \end{DoxyCompactList}\item 
+void \hyperlink{classBTreeNode_ac952651fc8810a15c9056ea3ffa62506}{borrow\+From\+Next} (int idx)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classBTreeNode_ac952651fc8810a15c9056ea3ffa62506}{B\+Tree\+Node\+::borrow\+From\+Next}. \end{DoxyCompactList}\item 
+void \hyperlink{classBTreeNode_acded44c5e6961efa0f78386973a9d0ef}{merge} (int idx)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classBTreeNode_acded44c5e6961efa0f78386973a9d0ef}{B\+Tree\+Node\+::merge}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries B\+Tree}\hypertarget{classBTreeNode_afe7ca3b05721d3baaafb993caf9d1bbc}{}\label{classBTreeNode_afe7ca3b05721d3baaafb993caf9d1bbc}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{B\+Tree\+Node@{B\+Tree\+Node}!borrow\+From\+Next@{borrow\+From\+Next}}
+\index{borrow\+From\+Next@{borrow\+From\+Next}!B\+Tree\+Node@{B\+Tree\+Node}}
+\subsubsection[{\texorpdfstring{borrow\+From\+Next(int idx)}{borrowFromNext(int idx)}}]{\setlength{\rightskip}{0pt plus 5cm}void B\+Tree\+Node\+::borrow\+From\+Next (
+\begin{DoxyParamCaption}
+\item[{int}]{idx}
+\end{DoxyParamCaption}
+)}\hypertarget{classBTreeNode_ac952651fc8810a15c9056ea3ffa62506}{}\label{classBTreeNode_ac952651fc8810a15c9056ea3ffa62506}
+
+
+\hyperlink{classBTreeNode_ac952651fc8810a15c9056ea3ffa62506}{B\+Tree\+Node\+::borrow\+From\+Next}. 
+
+A function to borrow a key from the C\mbox{[}idx+1\mbox{]} and place it in C\mbox{[}idx\mbox{]} 
+\begin{DoxyParams}{Parameters}
+{\em idx} & \\
+\hline
+\end{DoxyParams}
+\index{B\+Tree\+Node@{B\+Tree\+Node}!borrow\+From\+Prev@{borrow\+From\+Prev}}
+\index{borrow\+From\+Prev@{borrow\+From\+Prev}!B\+Tree\+Node@{B\+Tree\+Node}}
+\subsubsection[{\texorpdfstring{borrow\+From\+Prev(int idx)}{borrowFromPrev(int idx)}}]{\setlength{\rightskip}{0pt plus 5cm}void B\+Tree\+Node\+::borrow\+From\+Prev (
+\begin{DoxyParamCaption}
+\item[{int}]{idx}
+\end{DoxyParamCaption}
+)}\hypertarget{classBTreeNode_aa9960b327fc4cfd9163cd95c221c5289}{}\label{classBTreeNode_aa9960b327fc4cfd9163cd95c221c5289}
+
+
+\hyperlink{classBTreeNode_aa9960b327fc4cfd9163cd95c221c5289}{B\+Tree\+Node\+::borrow\+From\+Prev}. 
+
+A function to borrow a key from C\mbox{[}idx-\/1\mbox{]} and insert it into C\mbox{[}idx\mbox{]} 
+\begin{DoxyParams}{Parameters}
+{\em idx} & \\
+\hline
+\end{DoxyParams}
+\index{B\+Tree\+Node@{B\+Tree\+Node}!fill@{fill}}
+\index{fill@{fill}!B\+Tree\+Node@{B\+Tree\+Node}}
+\subsubsection[{\texorpdfstring{fill(int idx)}{fill(int idx)}}]{\setlength{\rightskip}{0pt plus 5cm}void B\+Tree\+Node\+::fill (
+\begin{DoxyParamCaption}
+\item[{int}]{idx}
+\end{DoxyParamCaption}
+)}\hypertarget{classBTreeNode_acbcd10173cfb359b0368a14d3c5057f4}{}\label{classBTreeNode_acbcd10173cfb359b0368a14d3c5057f4}
+
+
+\hyperlink{classBTreeNode_acbcd10173cfb359b0368a14d3c5057f4}{B\+Tree\+Node\+::fill}. 
+
+A function to fill child C\mbox{[}idx\mbox{]} which has less than t-\/1 keys 
+\begin{DoxyParams}{Parameters}
+{\em idx} & \\
+\hline
+\end{DoxyParams}
+\index{B\+Tree\+Node@{B\+Tree\+Node}!get\+Pred@{get\+Pred}}
+\index{get\+Pred@{get\+Pred}!B\+Tree\+Node@{B\+Tree\+Node}}
+\subsubsection[{\texorpdfstring{get\+Pred(int idx)}{getPred(int idx)}}]{\setlength{\rightskip}{0pt plus 5cm}int B\+Tree\+Node\+::get\+Pred (
+\begin{DoxyParamCaption}
+\item[{int}]{idx}
+\end{DoxyParamCaption}
+)}\hypertarget{classBTreeNode_a4a212d79e42c57cf3e8e4520f4cc7f04}{}\label{classBTreeNode_a4a212d79e42c57cf3e8e4520f4cc7f04}
+
+
+\hyperlink{classBTreeNode_a4a212d79e42c57cf3e8e4520f4cc7f04}{B\+Tree\+Node\+::get\+Pred}. 
+
+A function to get predecessor of keys\mbox{[}idx\mbox{]} 
+\begin{DoxyParams}{Parameters}
+{\em idx} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{B\+Tree\+Node@{B\+Tree\+Node}!insert\+Non\+Full@{insert\+Non\+Full}}
+\index{insert\+Non\+Full@{insert\+Non\+Full}!B\+Tree\+Node@{B\+Tree\+Node}}
+\subsubsection[{\texorpdfstring{insert\+Non\+Full(int k)}{insertNonFull(int k)}}]{\setlength{\rightskip}{0pt plus 5cm}void B\+Tree\+Node\+::insert\+Non\+Full (
+\begin{DoxyParamCaption}
+\item[{int}]{k}
+\end{DoxyParamCaption}
+)}\hypertarget{classBTreeNode_aab8552d41662b83059a6f1e149b55ad9}{}\label{classBTreeNode_aab8552d41662b83059a6f1e149b55ad9}
+
+
+\hyperlink{classBTreeNode_aab8552d41662b83059a6f1e149b55ad9}{B\+Tree\+Node\+::insert\+Non\+Full}. 
+
+A utility function to insert a new key in this node, The assumption is, the node must be non-\/full when this function is called 
+\begin{DoxyParams}{Parameters}
+{\em k} & \\
+\hline
+\end{DoxyParams}
+\index{B\+Tree\+Node@{B\+Tree\+Node}!merge@{merge}}
+\index{merge@{merge}!B\+Tree\+Node@{B\+Tree\+Node}}
+\subsubsection[{\texorpdfstring{merge(int idx)}{merge(int idx)}}]{\setlength{\rightskip}{0pt plus 5cm}void B\+Tree\+Node\+::merge (
+\begin{DoxyParamCaption}
+\item[{int}]{idx}
+\end{DoxyParamCaption}
+)}\hypertarget{classBTreeNode_acded44c5e6961efa0f78386973a9d0ef}{}\label{classBTreeNode_acded44c5e6961efa0f78386973a9d0ef}
+
+
+\hyperlink{classBTreeNode_acded44c5e6961efa0f78386973a9d0ef}{B\+Tree\+Node\+::merge}. 
+
+A function to merge C\mbox{[}idx\mbox{]} with C\mbox{[}idx+1\mbox{]} C\mbox{[}idx+1\mbox{]} is freed after merging 
+\begin{DoxyParams}{Parameters}
+{\em idx} & \\
+\hline
+\end{DoxyParams}
+\index{B\+Tree\+Node@{B\+Tree\+Node}!remove\+From\+Leaf@{remove\+From\+Leaf}}
+\index{remove\+From\+Leaf@{remove\+From\+Leaf}!B\+Tree\+Node@{B\+Tree\+Node}}
+\subsubsection[{\texorpdfstring{remove\+From\+Leaf(int idx)}{removeFromLeaf(int idx)}}]{\setlength{\rightskip}{0pt plus 5cm}void B\+Tree\+Node\+::remove\+From\+Leaf (
+\begin{DoxyParamCaption}
+\item[{int}]{idx}
+\end{DoxyParamCaption}
+)}\hypertarget{classBTreeNode_a16d8905e906ebb4fce44dbb59cdae1a1}{}\label{classBTreeNode_a16d8905e906ebb4fce44dbb59cdae1a1}
+
+
+\hyperlink{classBTreeNode_a16d8905e906ebb4fce44dbb59cdae1a1}{B\+Tree\+Node\+::remove\+From\+Leaf}. 
+
+A function to remove the idx-\/th key from this node -\/ which is a leaf node 
+\begin{DoxyParams}{Parameters}
+{\em idx} & \\
+\hline
+\end{DoxyParams}
+\index{B\+Tree\+Node@{B\+Tree\+Node}!remove\+From\+Non\+Leaf@{remove\+From\+Non\+Leaf}}
+\index{remove\+From\+Non\+Leaf@{remove\+From\+Non\+Leaf}!B\+Tree\+Node@{B\+Tree\+Node}}
+\subsubsection[{\texorpdfstring{remove\+From\+Non\+Leaf(int idx)}{removeFromNonLeaf(int idx)}}]{\setlength{\rightskip}{0pt plus 5cm}void B\+Tree\+Node\+::remove\+From\+Non\+Leaf (
+\begin{DoxyParamCaption}
+\item[{int}]{idx}
+\end{DoxyParamCaption}
+)}\hypertarget{classBTreeNode_aa6ee53b119d6ee874d664652c2eeba6e}{}\label{classBTreeNode_aa6ee53b119d6ee874d664652c2eeba6e}
+
+
+\hyperlink{classBTreeNode_aa6ee53b119d6ee874d664652c2eeba6e}{B\+Tree\+Node\+::remove\+From\+Non\+Leaf}. 
+
+A function to remove the idx-\/th key from this node -\/ which is a non-\/leaf node 
+\begin{DoxyParams}{Parameters}
+{\em idx} & \\
+\hline
+\end{DoxyParams}
+\index{B\+Tree\+Node@{B\+Tree\+Node}!search@{search}}
+\index{search@{search}!B\+Tree\+Node@{B\+Tree\+Node}}
+\subsubsection[{\texorpdfstring{search(int k)}{search(int k)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\+Tree\+Node} $\ast$ B\+Tree\+Node\+::search (
+\begin{DoxyParamCaption}
+\item[{int}]{k}
+\end{DoxyParamCaption}
+)}\hypertarget{classBTreeNode_a6efde11b5f5d60718992ab1803262c88}{}\label{classBTreeNode_a6efde11b5f5d60718992ab1803262c88}
+
+
+\hyperlink{classBTreeNode_a6efde11b5f5d60718992ab1803262c88}{B\+Tree\+Node\+::search}. 
+
+Function to search key k in subtree rooted with this node 
+\begin{DoxyParams}{Parameters}
+{\em k} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{B\+Tree\+Node@{B\+Tree\+Node}!split\+Child@{split\+Child}}
+\index{split\+Child@{split\+Child}!B\+Tree\+Node@{B\+Tree\+Node}}
+\subsubsection[{\texorpdfstring{split\+Child(int i, B\+Tree\+Node $\ast$y)}{splitChild(int i, BTreeNode *y)}}]{\setlength{\rightskip}{0pt plus 5cm}void B\+Tree\+Node\+::split\+Child (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{{\bf B\+Tree\+Node} $\ast$}]{y}
+\end{DoxyParamCaption}
+)}\hypertarget{classBTreeNode_ad4d6359429aa7bb6edc30aaf1a4d2bb9}{}\label{classBTreeNode_ad4d6359429aa7bb6edc30aaf1a4d2bb9}
+
+
+\hyperlink{classBTreeNode_ad4d6359429aa7bb6edc30aaf1a4d2bb9}{B\+Tree\+Node\+::split\+Child}. 
+
+A utility function to split the child y of this node 
+\begin{DoxyParams}{Parameters}
+{\em i} & \\
+\hline
+{\em y} & \\
+\hline
+\end{DoxyParams}
+\index{B\+Tree\+Node@{B\+Tree\+Node}!traverse@{traverse}}
+\index{traverse@{traverse}!B\+Tree\+Node@{B\+Tree\+Node}}
+\subsubsection[{\texorpdfstring{traverse()}{traverse()}}]{\setlength{\rightskip}{0pt plus 5cm}void B\+Tree\+Node\+::traverse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classBTreeNode_abbbbc81dc44a25f7c1d31461a25284da}{}\label{classBTreeNode_abbbbc81dc44a25f7c1d31461a25284da}
+
+
+\hyperlink{classBTreeNode_abbbbc81dc44a25f7c1d31461a25284da}{B\+Tree\+Node\+::traverse}. 
+
+Function to traverse all nodes in a subtree rooted with this node 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+btree.\+cpp\end{DoxyCompactItemize}

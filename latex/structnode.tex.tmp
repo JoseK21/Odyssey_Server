@@ -1,0 +1,23 @@
+\hypertarget{structnode}{}\section{node Struct Reference}
+\label{structnode}\index{node@{node}}
+
+
+Collaboration diagram for node\+:
+% FIG 0
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries key}\hypertarget{structnode_aa1417e7fad3ebcf42dc0ec8b711f273d}{}\label{structnode_aa1417e7fad3ebcf42dc0ec8b711f273d}
+
+\item 
+struct \hyperlink{structnode}{node} $\ast$ {\bfseries left}\hypertarget{structnode_a3ce38490a651bfda86d88ff955e96abc}{}\label{structnode_a3ce38490a651bfda86d88ff955e96abc}
+
+\item 
+struct \hyperlink{structnode}{node} $\ast$ {\bfseries right}\hypertarget{structnode_a51e160f22dc6064bac4a4f9f1d931c2c}{}\label{structnode_a51e160f22dc6064bac4a4f9f1d931c2c}
+
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+binarysearchtree.\+cpp\end{DoxyCompactItemize}

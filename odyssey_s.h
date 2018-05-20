@@ -29,11 +29,7 @@ public slots:
      *
      */
     void leer_socketcliente();
-    /**
-     * @brief Método para crear el fichero xml
-     *
-     */
-    void doXml();
+
     /**
      * @brief Método para leer los datos enviado por el cliente
      *
@@ -44,6 +40,12 @@ public slots:
      *
      */
     void leer_socketSingin();
+
+    /**
+     * @brief Método para crear el ficheros
+     *
+     */
+    void createFile();
 
 
 
